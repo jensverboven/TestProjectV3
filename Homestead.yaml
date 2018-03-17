@@ -1,4 +1,4 @@
-ip: 127.0.0.1:8000
+ip: 192.168.10.50
 memory: 2048
 cpus: 2
 provider: virtualbox

@@ -13,7 +13,7 @@ folders:
 sites:
     -
         map: jens.travel
-        to: /home/vagrant/training/web
+        to: /home/vagrant/training
         type: symfony
         php: "7.1"
 databases:

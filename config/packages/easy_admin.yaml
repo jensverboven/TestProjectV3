@@ -4,4 +4,4 @@ easy_admin:
         - App\Entity\Agency
         - App\Entity\Flight
         - App\Entity\Hotel
-       - App\Entity\User
+        - App\Entity\User

@@ -17,7 +17,6 @@ class Flight
     private $id;
     
         /**
-     * @Groups({"read"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Agency", inversedBy="flights")
      * @ORM\JoinColumn(nullable=true)
      */

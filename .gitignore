@@ -43,3 +43,7 @@
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
 /nbproject/private/
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/public/build/
+###< symfony/webpack-encore-pack ###

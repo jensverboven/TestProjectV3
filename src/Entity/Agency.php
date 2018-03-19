@@ -10,26 +10,22 @@ use Doctrine\ORM\Mapping as ORM;
 class Agency
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
-    
-      
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
     private $name;
-
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $url;
     
-    
-     
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Hotel", mappedBy="agency")
      */
@@ -39,12 +35,31 @@ class Agency
      * @ORM\OneToMany(targetEntity="App\Entity\Flight", mappedBy="agency")
      */
     private $flights;
-
-    public function getId()
-    {
+    
+    function getId() {
         return $this->id;
     }
-     
+
+    function getName() {
+        return $this->name;
+    }
+
+    function getUrl() {
+        return $this->url;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setName($name) {
+        $this->name = $name;
+    }
+
+    function setUrl($url) {
+        $this->url = $url;
+    }
+    
     function getHotels() {
         return $this->hotels;
     }
@@ -60,31 +75,8 @@ class Agency
     function setFlights($flights) {
         $this->flights = $flights;
     }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(string $url): self
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-     public function __toString() {
+    
+    public function __toString() {
         return $this->name;
     }
 }

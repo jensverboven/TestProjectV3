@@ -4,203 +4,166 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FlightRepository")
  */
 class Flight
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
-    
-        /**
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Agency", inversedBy="flights")
      * @ORM\JoinColumn(nullable=true)
      */
     private $agency;
     
-
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $remoteId;
-
+    
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
     private $airline;
-     /**
-     * @ORM\Column(type="string", length=255,name="flightfrom")
-     */
-    private $from;
     
-     /**
-     * @ORM\Column(type="string", length=255, name="flightTo")
-     */
-    private $to;
-
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $start;
-
+    
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $end;
-
+    
     /**
      * @ORM\Column(type="time")
      */
     private $timeofday;
-
+    
     /**
      * @ORM\Column(type="integer")
      */
     private $duration;
-
+    
     /**
-     * @ORM\Column(type="decimal", precision=0)
+     * @ORM\Column(name="from_location", type="string", length=100)
+     */
+    private $from;
+    
+    /**
+     * @ORM\Column(name="to_location", type="string", length=100)
+     */
+    private $to;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=2)
      */
     private $price;
-
+    
     /**
      * @ORM\Column(type="boolean")
      */
     private $owned;
-
-    public function getId()
-    {
+    
+    function getId() {
         return $this->id;
     }
 
-    public function getRemoteId(): ?int
-    {
-        return $this->remoteId;
+    function getAgency() {
+        return $this->agency;
     }
 
-    public function setRemoteId(int $remoteId): self
-    {
-        $this->remoteId = $remoteId;
-
-        return $this;
-    }
-
-    public function getAirline(): ?string
-    {
+    function getAirline() {
         return $this->airline;
     }
-      public function getFrom(): ?string
-    {
-        return $this->from;
-    }
-      public function getTo(): ?string
-    {
-        return $this->to;
-    }
 
-    public function setAirline(string $airline): self
-    {
-        $this->airline = $airline;
-
-        return $this;
-    }
-
-    
-       public function setTo(string $to): self
-    {
-        $this->to = $to;
-
-        return $this;
-    }
-       public function setFrom(string $from): self
-    {
-        $this->from = $from;
-
-        return $this;
-    }
-
-
-    public function getStart(): ?\DateTimeInterface
-    {
+    function getStart() {
         return $this->start;
     }
 
-    public function setStart(\DateTimeInterface $start): self
-    {
-        $this->start = $start;
-
-        return $this;
-    }
-
-    public function getEnd(): ?\DateTimeInterface
-    {
+    function getEnd() {
         return $this->end;
     }
 
-    public function setEnd(\DateTimeInterface $end): self
-    {
-        $this->end = $end;
-
-        return $this;
-    }
-
-    public function getTimeofday(): ?\DateTimeInterface
-    {
+    function getTimeofday() {
         return $this->timeofday;
     }
 
-    public function setTimeofday(\DateTimeInterface $timeofday): self
-    {
-        $this->timeofday = $timeofday;
-
-        return $this;
-    }
-
-    public function getDuration(): ?int
-    {
+    function getDuration() {
         return $this->duration;
     }
 
-    public function setDuration(int $duration): self
-    {
-        $this->duration = $duration;
-
-        return $this;
+    function getFrom() {
+        return $this->from;
     }
 
-    public function getPrice(): ?int
-    {
+    function getTo() {
+        return $this->to;
+    }
+
+    function getPrice() {
         return $this->price;
     }
 
-       public function setPrice($price): self
-    {
-        $this->price = $price;
-
-        return $this;
+    function setId($id) {
+        $this->id = $id;
     }
 
+    function setAgency($agency) {
+        $this->agency = $agency;
+    }
 
-    public function getOwned(): ?bool
-    {
+    function setAirline($airline) {
+        $this->airline = $airline;
+    }
+
+    function setStart($start) {
+        $this->start = $start;
+    }
+
+    function setEnd($end) {
+        $this->end = $end;
+    }
+
+    function setTimeofday($timeofday) {
+        $this->timeofday = $timeofday;
+    }
+
+    function setDuration($duration) {
+        $this->duration = $duration;
+    }
+
+    function setFrom($from) {
+        $this->from = $from;
+    }
+
+    function setTo($to) {
+        $this->to = $to;
+    }
+
+    function setPrice($price) {
+        $this->price = $price;
+    }
+    function getOwned() {
         return $this->owned;
     }
 
-    public function setOwned(bool $owned): self
-    {
+    function setOwned($owned) {
         $this->owned = $owned;
+    }
+    function getRemoteId() {
+        return $this->remoteId;
+    }
 
-        return $this;
-    }
-      function getAgency() {
-        return $this->agency;
-    }
-    
-    function setAgency($agency) {
-        $this->agency = $agency;
+    function setRemoteId($remoteId) {
+        $this->remoteId = $remoteId;
     }
 }

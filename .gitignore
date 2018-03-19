@@ -38,7 +38,7 @@
 /build/
 
 /.vagrant/
-/.vendor/
+/vendor/
 /nbproject/
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~

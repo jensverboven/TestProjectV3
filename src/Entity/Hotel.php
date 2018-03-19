@@ -24,12 +24,12 @@ class Hotel
     
     
     public function getAgency(){
-        return $this->Agency;
+        return $this->agency;
     }
 
     public function setAgency($agency)
     {
-        $this->Agency = $agency;
+        $this->agency = $agency;
     }
     
 

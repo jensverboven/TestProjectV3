@@ -33,12 +33,12 @@ class Flight
      */
     private $airline;
      /**
-     * @ORM\Column(type="string", length=255,name=flightfrom)
+     * @ORM\Column(type="string", length=255,name="flightfrom")
      */
     private $from;
     
      /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="flightTo")
      */
     private $to;
 

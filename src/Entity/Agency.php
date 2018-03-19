@@ -15,6 +15,8 @@ class Agency
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+      
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -25,10 +27,38 @@ class Agency
      * @ORM\Column(type="string", length=255)
      */
     private $url;
+    
+    
+     
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Hotel", mappedBy="agency")
+     */
+    private $hotels;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Flight", mappedBy="agency")
+     */
+    private $flights;
 
     public function getId()
     {
         return $this->id;
+    }
+     
+    function getHotels() {
+        return $this->hotels;
+    }
+
+    function getFlights() {
+        return $this->flights;
+    }
+
+    function setHotels($hotels) {
+        $this->hotels = $hotels;
+    }
+
+    function setFlights($flights) {
+        $this->flights = $flights;
     }
 
     public function getName(): ?string
@@ -53,5 +83,8 @@ class Agency
         $this->url = $url;
 
         return $this;
+    }
+     public function __toString() {
+        return $this->name;
     }
 }

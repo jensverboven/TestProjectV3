@@ -15,6 +15,23 @@ class Hotel
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Agency", inversedBy="hotels")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $agency;
+    
+    
+    public function getAgency(){
+        return $this->Agency;
+    }
+
+    public function setAgency($agency)
+    {
+        $this->Agency = $agency;
+    }
+    
 
     /**
      * @ORM\Column(type="string", length=255)

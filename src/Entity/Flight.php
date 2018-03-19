@@ -15,6 +15,14 @@ class Flight
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+        /**
+     * @Groups({"read"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Agency", inversedBy="flights")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $agency;
+    
 
     /**
      * @ORM\Column(type="integer")
@@ -25,6 +33,15 @@ class Flight
      * @ORM\Column(type="string", length=255)
      */
     private $airline;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $from;
+    
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $to;
 
     /**
      * @ORM\Column(type="datetime")
@@ -77,6 +94,14 @@ class Flight
     {
         return $this->airline;
     }
+      public function getFrom(): ?string
+    {
+        return $this->from;
+    }
+      public function getTo(): ?string
+    {
+        return $this->to;
+    }
 
     public function setAirline(string $airline): self
     {
@@ -84,6 +109,21 @@ class Flight
 
         return $this;
     }
+
+    
+       public function setTo(string $to): self
+    {
+        $this->to = $to;
+
+        return $this;
+    }
+       public function setFrom(string $from): self
+    {
+        $this->from = $from;
+
+        return $this;
+    }
+
 
     public function getStart(): ?\DateTimeInterface
     {
@@ -156,5 +196,12 @@ class Flight
         $this->owned = $owned;
 
         return $this;
+    }
+      function getAgency() {
+        return $this->agency;
+    }
+    
+    function setAgency($agency) {
+        $this->agency = $agency;
     }
 }

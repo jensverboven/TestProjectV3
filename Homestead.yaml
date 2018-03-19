@@ -2,7 +2,7 @@ ip: 192.168.10.50
 memory: 2048
 cpus: 2
 provider: virtualbox
-authorize: C:\Users\jensv\Documents\NetBeansProjects\TestProjectV3\.vagrant\machines\training\virtualbox\private_key
+authorize: C:\Users\jensv\Documents\Identity.pub
 #keys:
 #    - ~/.ssh/id_rsa
 folders:

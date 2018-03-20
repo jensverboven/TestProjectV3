@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1> Overview of all flights </h1>
+<table class="table">
+<tr>
+    <td>Agency</td>
+    <td>Airline</td>
+    <td>start</td>
+    <td>end</td>
+    <td>duration</td>
+    <td>from</td>
+    <td>to</td>
+    <td>price</td>
+
+
+</tr>
+{% for flight in flights %}
+<tr>
+		<td>{{ flight.agency }}</td>
+		<td>{{ flight.airline }}</td>
+        <td>{{ flight.start|date ('Y-m-d') }}</td>
+		<td>{{ flight.end|date ('Y-m-d')  }}</td>
+        <td>{{ flight.duration }}</td>
+		<td>{{ flight.from }}</td>
+        <td>{{ flight.to }}</td>
+		<td>{{ flight.price }}</td>
+</tr>		
+
+{% endfor %}
+</table>
+
+    <h1> Overview of all hotels</h1>
+<table class="table">
+<tr>
+    <td>Agency</td>
+    <td>Name</td>
+    <td>Location</td>
+    <td>Start</td>
+    <td>End</td>
+    <td>Stars</td>
+    <td>Price</td>
+ 
+
+
+</tr>
+{% for hotel in hotels %}
+<tr>
+		<td>{{ hotel.agency }}</td>
+		<td>{{ hotel.name }}</td>
+        <td>{{ hotel.location }}</td>
+        <td>{{ hotel.start|date ('Y-m-d') }}</td>
+		<td>{{ hotel.end|date ('Y-m-d')  }}</td>     
+		<td>{{ hotel.stars }}</td>
+        <td>{{ hotel.price }}</td>
+</tr>		
+
+{% endfor %}
+</table>
+  
+  
+</div>
+
+{% endblock %}

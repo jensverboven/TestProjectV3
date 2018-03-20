@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\FlightRepository")
  */
 class Flight
@@ -164,5 +166,10 @@ class Flight
 
     function setRemoteId($remoteId) {
         $this->remoteId = $remoteId;
+    }
+    public function __toString() {
+    /* The ."" is to convert the id to a string
+    */
+        return $this->id."";
     }
 }

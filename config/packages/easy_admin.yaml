@@ -5,3 +5,5 @@ easy_admin:
         - App\Entity\Flight
         - App\Entity\Hotel
         - App\Entity\User
+    design:
+        brand_color: '#0a7201'
